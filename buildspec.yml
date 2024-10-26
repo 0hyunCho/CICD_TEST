@@ -28,5 +28,4 @@ artifacts:
 cache:
   paths:
     - ~/.gradle/caches/**  # Cache Gradle dependencies
-    - ~/.gradle/wrapper/**  # Cache Gradle wrapper files
 
