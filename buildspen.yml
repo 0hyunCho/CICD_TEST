@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo "Installing dependencies..."
+      - ./gradlew build -x test
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - ./gradlew clean build -x test
+      - echo "Build completed on `date`"
+  post_build:
+    commands:
+      - echo "Post-build steps"
+      - ls build/libs/  # Check if the JAR file is generated successfully
+      - echo "Build completed. Preparing to deploy."
+artifacts:
+  files:
+    - build/libs/*.jar  # Include the JAR file as an artifact
+  discard-paths: yes
+
+cache:
+  paths:
+    - ~/.gradle/caches/**  # Cache Gradle dependencies
+    - ~/.gradle/wrapper/**  # Cache Gradle wrapper files
