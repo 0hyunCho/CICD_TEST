@@ -22,7 +22,7 @@ artifacts:
   files:
     - appspec.yml
     - build/libs/*.jar  # Include the JAR file as an artifact
-    - scripts/**
+    - scripts/*
   discard-paths: no
 
 cache:
