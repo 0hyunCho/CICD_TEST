@@ -14,12 +14,12 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: /home/ec2-user/CICD_TEST/scripts/start.sh
+    - location: start.sh
       timeout: 300
       runas: ec2-user
 
   ApplicationStop:
-    - location: /home/ec2-user/CICD_TEST/scripts/stop.sh
+    - location: stop.sh
       timeout: 300
       runas: ec2-user
 
