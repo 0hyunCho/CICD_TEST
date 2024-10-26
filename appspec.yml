@@ -15,11 +15,11 @@ permissions:
 
 hooks:
   ApplicationStop:
-    - location: scripts/stop.sh
+    - location: /home/ec2-user/Elice_AWS_RDS/scripts/
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: /home/ec2-user/Elice_AWS_RDS/scripts/
       timeout: 300
       runas: ec2-user
