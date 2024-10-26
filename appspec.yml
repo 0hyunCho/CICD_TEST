@@ -4,7 +4,7 @@ files:
   - source: /
     destination: /home/ec2-user/
   - source: scripts/
-    destination: /home/ec2-user/Elice_AWS_RDS/scripts/
+    destination: /home/ec2-user/CICD_TEST/scripts/
 
 permissions:
   - object: /
@@ -15,11 +15,11 @@ permissions:
 
 hooks:
   ApplicationStop:
-    - location: /home/ec2-user/Elice_AWS_RDS/scripts/
+    - location: /home/ec2-user/CICD_TEST/scripts/
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: /home/ec2-user/Elice_AWS_RDS/scripts/
+    - location: /home/ec2-user/CICD_TEST/scripts/
       timeout: 300
       runas: ec2-user
