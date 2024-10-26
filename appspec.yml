@@ -3,6 +3,8 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/
+  - source: scripts/
+    destination: /home/ec2-iser/Elice_AWS_RDS/scripts/
 
 permissions:
   - object: /
