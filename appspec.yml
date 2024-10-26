@@ -4,13 +4,9 @@ files:
   - source: .
     destination: /home/ec2-user/CICD_TEST
     overwrite: yes
-  - source: ./scripts/start.sh
-    destination: /home/ec2-user/CICD_TEST/scripts
-  - source: ./scripts/stop.sh
-    destination: /home/ec2-user/CICD_TEST/scripts
 
 permissions:
-  - object: /home/ec2-user/CICD_TEST
+  - object: /
     pattern : "**"
     mode : 755
     owner : ec2-user
