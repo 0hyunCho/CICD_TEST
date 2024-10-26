@@ -23,7 +23,7 @@ artifacts:
     - appspec.yml
     - build/libs/*.jar  # Include the JAR file as an artifact
     - scripts/*
-  discard-paths: no
+  discard-paths: yes
 
 cache:
   paths:
