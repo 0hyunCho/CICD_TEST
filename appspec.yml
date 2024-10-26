@@ -3,8 +3,6 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/CICD_TEST
-  - source: scripts/
-    destination: /home/ec2-user/CICD_TEST/scripts/
 
 permissions:
   - object: /
@@ -15,11 +13,11 @@ permissions:
 
 hooks:
   ApplicationStop:
-    - location: /home/ec2-user/CICD_TEST/scripts/stop.sh
+    - location: scripts/stop.sh
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: /home/ec2-user/CICD_TEST/scripts/start.sh
+    - location: scripts/start.sh
       timeout: 300
       runas: ec2-user
