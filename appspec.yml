@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/
+
+permissions:
+  - object: /
+    pattern : "**"
+    mode : 755
+    owner : ubuntu
+    group : ubuntu
+
+hooks:
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 300
+      runas: ec2-user
+
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 300
+      runas: ec2-user
