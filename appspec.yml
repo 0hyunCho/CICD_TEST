@@ -1,13 +1,16 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: .
     destination: /home/ec2-user/CICD_TEST
     overwrite: yes
-
+  - source: ./scripts/start.sh
+    destination: /home/ec2-user/CICD_TEST/scripts
+  - source: ./scripts/stop.sh
+    destination: /home/ec2-user/CICD_TEST/scripts
 
 permissions:
-  - object: /
+  - object: /home/ec2-user/CICD_TEST
     pattern : "**"
     mode : 755
     owner : ec2-user
@@ -15,12 +18,12 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: /home/ec2-user/CICD_TEST/start.sh
+    - location: /home/ec2-user/CICD_TEST/scripts/start.sh
       timeout: 300
       runas: ec2-user
 
   ApplicationStop:
-    - location: /home/ec2-user/CICD_TEST/stop.sh
+    - location: /home/ec2-user/CICD_TEST/scripts/stop.sh
       timeout: 300
       runas: ec2-user
 
