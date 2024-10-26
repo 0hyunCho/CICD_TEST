@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/test
     overwrite: yes
 
 
@@ -16,13 +16,13 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: start.sh
       timeout: 300
       runas: ec2-user
 
 
   ApplicationStop:
-    - location: scripts/stop.sh
+    - location: stop.sh
       timeout: 300
       runas: ec2-user
 
