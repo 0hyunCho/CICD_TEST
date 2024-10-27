@@ -29,3 +29,9 @@ cache:
   paths:
     - ~/.gradle/caches/**
 
+env:
+  variables:
+    DB_URL: "jdbc:mysql://your-database-url:3306/your-database-name"
+    DB_USERNAME: "your-username"
+    DB_PASSWORD: "your-password"
+
