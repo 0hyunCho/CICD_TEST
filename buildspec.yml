@@ -16,16 +16,16 @@ phases:
   post_build:
     commands:
       - echo "Post-build steps"
-      - ls build/libs/  # Check if the JAR file is generated successfully
+      - ls build/libs/
       - echo "Build completed. Preparing to deploy."
 artifacts:
   files:
     - appspec.yml
-    - build/libs/*.jar  # Include the JAR file as an artifact
+    - build/libs/*.jar
     - scripts/*
   discard-paths: yes
 
 cache:
   paths:
-    - ~/.gradle/caches/**  # Cache Gradle dependencies
+    - ~/.gradle/caches/**
 
