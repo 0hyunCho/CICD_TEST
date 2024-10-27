@@ -8,6 +8,13 @@ phases:
       - echo "Installing dependencies..."
       - sudo chmod 777 gradlew
       - ./gradlew build -x test
+  pre_build:
+    commands:
+      - echo "Setting up environment variables..."
+      - echo "" > src/main/resources/application-prod.properties
+      - echo "spring.datasource.url=$DB_URL" >> src/main/resources/application-prod.properties
+      - echo "spring.datasource.username=$DB_USERNAME" >> src/main/resources/application-prod.properties
+      - echo "spring.datasource.password=$DB_PASSWORD" >> src/main/resources/application-prod.properties
   build:
     commands:
       - echo "Build started on `date`"
@@ -28,10 +35,4 @@ artifacts:
 cache:
   paths:
     - ~/.gradle/caches/**
-
-env:
-  variables:
-    DB_URL: "jdbc:mysql://your-database-url:3306/your-database-name"
-    DB_USERNAME: "your-username"
-    DB_PASSWORD: "your-password"
 
